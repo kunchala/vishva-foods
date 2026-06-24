@@ -90,7 +90,7 @@ export default function Home() {
             >
               A one-person home kitchen in Ashburn. Spices ground fresh the morning
               we cook, curries simmered to order — never batch-made, never frozen.
-              Just pickup or delivery, the way home food should taste.
+              Just pickup or delivery, the way real home food should taste.
             </motion.p>
 
             <motion.div
@@ -160,9 +160,9 @@ export default function Home() {
         <div className="container">
           <Reveal className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div className="max-w-xl">
-              <p className="eyebrow mb-4">What everyone orders</p>
+              <p className="eyebrow mb-4">Crowd favorites</p>
               <h2 className="display-lg text-[#1F140D] text-[clamp(2.1rem,4.2vw,3.2rem)]">
-                Tonight's favourites
+                Tonight's favorites
               </h2>
             </div>
             <Link href="/menu" className="btn btn-outline btn-sm self-end">
