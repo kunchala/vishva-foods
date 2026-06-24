@@ -1,0 +1,14 @@
+{
+  "name": "Vishva Foods",
+  "short_name": "Vishva",
+  "description": "The World on Your Plate. 100% vegetarian Indian home kitchen in Ashburn, VA.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF6E8",
+  "theme_color": "#7B2D2D",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["food", "shopping"]
+}

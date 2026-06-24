@@ -1,0 +1,373 @@
+/* =============================================================
+   VISHVA FOODS — Design System: "Proud Home Kitchen"
+   Bold, warm, unapologetic — a home cook's kitchen, not a
+   curry-house cliché and not a dark moody template.
+   Palette : Chili #C5341B · Turmeric #E3A210 · Coriander #2E7D46
+             Rice #FBF3E3 · Ink #1F140D · Maroon #7B2D2D
+   Type    : Bricolage Grotesque (display) + Hanken Grotesk (body)
+   ============================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand tokens (kept names + new loud values) */
+  --color-rice: #FBF3E3;
+  --color-cream: #FBF3E3;
+  --color-ink: #1F140D;
+  --color-masala: #1F140D;
+  --color-chili: #C5341B;
+  --color-crimson: #7B2D2D;
+  --color-maroon: #7B2D2D;
+  --color-gold: #E3A210;
+  --color-turmeric: #E3A210;
+  --color-coriander: #2E7D46;
+  --color-pista: #EAF1E2;
+  --color-clay: #E7D9C0;
+  --color-jain-purple: #6B3FA0;
+  --color-gluten-amber: #B45309;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.7rem;
+
+  --background: oklch(0.966 0.022 86);        /* rice */
+  --foreground: oklch(0.20 0.018 55);          /* ink */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.018 55);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.018 55);
+
+  --primary: oklch(0.40 0.10 28);              /* maroon */
+  --primary-foreground: oklch(0.97 0.02 86);
+
+  --secondary: oklch(0.945 0.018 88);          /* warm off-white */
+  --secondary-foreground: oklch(0.28 0.03 45);
+
+  --muted: oklch(0.93 0.018 88);
+  --muted-foreground: oklch(0.46 0.02 60);
+
+  --accent: oklch(0.76 0.145 80);              /* turmeric */
+  --accent-foreground: oklch(0.20 0.018 55);
+
+  --destructive: oklch(0.54 0.185 33);         /* chili */
+  --destructive-foreground: oklch(0.98 0.01 86);
+
+  --border: oklch(0.89 0.025 88);              /* clay */
+  --input: oklch(0.91 0.02 88);
+  --ring: oklch(0.54 0.185 33);                /* chili focus ring */
+
+  --chart-1: oklch(0.54 0.185 33);
+  --chart-2: oklch(0.76 0.145 80);
+  --chart-3: oklch(0.53 0.115 152);
+  --chart-4: oklch(0.40 0.10 28);
+  --chart-5: oklch(0.55 0.05 290);
+
+  --sidebar: oklch(0.20 0.018 55);
+  --sidebar-foreground: oklch(0.95 0.02 86);
+  --sidebar-primary: oklch(0.76 0.145 80);
+  --sidebar-primary-foreground: oklch(0.20 0.018 55);
+  --sidebar-accent: oklch(0.28 0.03 45);
+  --sidebar-accent-foreground: oklch(0.95 0.02 86);
+  --sidebar-border: oklch(0.30 0.03 45);
+  --sidebar-ring: oklch(0.76 0.145 80);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-feature-settings: "cv01", "ss01";
+    line-height: 1.55;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  button { @apply cursor-pointer; }
+  ::selection { background: #E3A210; color: #1F140D; }
+  /* Smooth, accessible focus */
+  :focus-visible {
+    outline: 2px solid #C5341B;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* ---- Layout ---- */
+  .container {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .container { padding-inline: 2.5rem; }
+  }
+
+  /* ---- Display type ---- */
+  .font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.96;
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+
+  /* ---- Eyebrow / kicker ---- */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #7B2D2D;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.6rem;
+    height: 2px;
+    background: #C5341B;
+    border-radius: 2px;
+  }
+  .eyebrow-light { color: rgba(251, 243, 227, 0.85); }
+  .eyebrow-light::before { background: #E3A210; }
+  .eyebrow-plain::before { display: none; }
+
+  /* ---- Buttons: confident pills ---- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.98rem;
+    line-height: 1;
+    border: 2px solid transparent;
+    transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px) scale(0.99); }
+
+  .btn-chili {
+    background: #C5341B;
+    color: #FBF3E3;
+    box-shadow: 0 10px 22px -12px rgba(197, 52, 27, 0.8);
+  }
+  .btn-chili:hover { background: #aa2c15; transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(197, 52, 27, 0.9); }
+
+  .btn-turmeric {
+    background: #E3A210;
+    color: #1F140D;
+    box-shadow: 0 10px 22px -12px rgba(227, 162, 16, 0.85);
+  }
+  .btn-turmeric:hover { background: #cf9209; transform: translateY(-2px); }
+
+  .btn-ink {
+    background: #1F140D;
+    color: #FBF3E3;
+  }
+  .btn-ink:hover { background: #2c1d12; transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: #1F140D;
+    border-color: rgba(31, 20, 13, 0.28);
+  }
+  .btn-outline:hover { border-color: #1F140D; background: rgba(31, 20, 13, 0.04); }
+
+  .btn-outline-cream {
+    background: transparent;
+    color: #FBF3E3;
+    border-color: rgba(251, 243, 227, 0.45);
+  }
+  .btn-outline-cream:hover { border-color: #FBF3E3; background: rgba(251, 243, 227, 0.10); }
+
+  .btn-sm { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+
+  /* ---- Tags & badges ---- */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7B2D2D;
+  }
+  .badge-veg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #EAF1E2;
+    color: #2E7D46;
+    border: 1.5px solid rgba(46, 125, 70, 0.3);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .pill-soft {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(31, 20, 13, 0.05);
+    border: 1px solid rgba(31, 20, 13, 0.1);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1F140D;
+  }
+
+  /* ---- Dish card ---- */
+  .dish-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1.5px solid var(--color-clay);
+    border-radius: 1.1rem;
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .dish-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 44px -28px rgba(31, 20, 13, 0.4);
+    border-color: rgba(227, 162, 16, 0.55);
+  }
+  .hover-zoom { overflow: hidden; }
+  .hover-zoom img { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+  .group:hover .hover-zoom img { transform: scale(1.06); }
+
+  /* ---- Rules / dividers ---- */
+  .rule-clay { height: 1px; background: var(--color-clay); border: 0; }
+  .rule-cream { height: 1px; background: rgba(251, 243, 227, 0.18); border: 0; }
+
+  /* ---- Spice ribbon (marquee) ---- */
+  .marquee { overflow: hidden; white-space: nowrap; }
+  .marquee__track {
+    display: inline-flex;
+    align-items: center;
+    will-change: transform;
+    animation: marquee 38s linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    padding-inline: 1.1rem;
+  }
+  .marquee__star { padding-inline: 0.9rem; opacity: 0.7; }
+
+  /* ---- Rotating stamp (signature) ---- */
+  .stamp-spin { animation: spin-slow 22s linear infinite; }
+
+  /* ---- Leader-dot menu rows ---- */
+  .lead-row { display: flex; align-items: baseline; gap: 0.75rem; }
+  .lead-dots {
+    flex: 1;
+    border-bottom: 1.5px dotted rgba(31, 20, 13, 0.28);
+    transform: translateY(-0.25rem);
+  }
+
+  /* ---- Paper grain (dark sections only, very subtle) ---- */
+  .grain { position: relative; }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.text-balance { text-wrap: balance; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track, .stamp-spin { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}
