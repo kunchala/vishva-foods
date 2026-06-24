@@ -81,7 +81,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
             <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
               <div className="text-5xl">🛒</div>
               <p className="font-display text-[#1A0A00]/50 text-lg">Your cart is empty</p>
-              <p className="text-sm text-[#1A0A00]/40">Add some delicious dishes from our menu</p>
+              <p className="text-sm text-[#1A0A00]/40">Add a few dishes — everything's cooked fresh to order</p>
               <Link
                 href="/menu"
                 onClick={onClose}
