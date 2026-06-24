@@ -163,7 +163,7 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
             <Link
               href="/checkout"
               onClick={onClose}
-              className="btn-chili w-full justify-center text-base font-bold shadow-lg"
+              className="btn btn-checkout w-full justify-center text-base py-4"
             >
               Proceed to Checkout
             </Link>
