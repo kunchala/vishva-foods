@@ -219,7 +219,19 @@
     box-shadow: 0 10px 22px -12px rgba(197, 52, 27, 0.8);
   }
   .btn-chili:hover { background: #aa2c15; transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(197, 52, 27, 0.9); }
-
+  /* Prominent pill CTA for the cart checkout button */
+     .btn-checkout {
+            background: #C5341B;
+            color: #FBF3E3;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 12px 26px -10px rgba(197, 52, 27, 0.85), inset 0 0 0 2px rgba(251, 243, 227, 0.25);
+     }
+     .btn-checkout:hover { background: #aa2c15; transform: translateY(-2px); box-shadow: 0 18px 34px -12px rgba(197, 52, 27, 0.95), inset 0 0 0 2px rgba(251, 243, 227, 0.35); }
+     /* Add-to-cart toast: keep the price clearly readable, not blended in */
+     [data-sonner-toast] [data-title] { color: #1A0A00; font-weight: 700; }
+     [data-sonner-toast] [data-description] { color: #C5341B; font-weight: 700; opacity: 1; }
+   
   .btn-turmeric {
     background: #E3A210;
     color: #1F140D;
