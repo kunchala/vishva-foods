@@ -25,7 +25,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-sm text-[#FEF6E8]/60 leading-relaxed max-w-xs">
-                A family kitchen in Ashburn cooking vegetarian Indian food to order —
+                A one-person home kitchen in Ashburn cooking vegetarian Indian food to order —
                 spices ground fresh, curries finished by hand, no dine-in by design.
               </p>
               <a
