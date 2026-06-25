@@ -4,7 +4,7 @@
 // RESEND_API_KEY is absent so dev/checkout never breaks on email.
 // =============================================================
 import { Resend } from "resend";
-import OrderConfirmationEmail from "../emails/OrderConfirmation.js";
+// OrderConfirmation template is imported lazily inside sendOrderConfirmationEmail (see below)
 
 interface OrderRow {
   id: string;
@@ -41,6 +41,7 @@ export async function sendOrderConfirmationEmail(order: OrderRow) {
   const estimatedTime =
     order.fulfillment_type === "pickup" ? "Ready in 25–35 min" : "Delivery in 35–50 min";
 
+  const { default: OrderConfirmationEmail } = await import("../emails/OrderConfirmation.js");
   const element = OrderConfirmationEmail({
     orderId: order.id,
     customerName: order.customer_name,
